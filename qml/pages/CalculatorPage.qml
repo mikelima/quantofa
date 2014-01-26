@@ -93,7 +93,7 @@ Page {
                     width:parent.width / 5
                 }
                 Button {
-                    text: "e^x"
+                    text: "e^x" // e^x
                     onClicked: Hp35.key_epow()
                     width:parent.width / 5
                 }
@@ -107,7 +107,7 @@ Page {
                 // Row 2
                 width: calculator.width
                 Button {
-                    text: "ROOT"
+                    text: "\u221ax" // sqrt x
                     onClicked: Hp35.key_sqrt()
                     width:parent.width / 5
                 }
@@ -141,12 +141,12 @@ Page {
                     width:parent.width / 5
                 }
                 Button {
-                    text: qsTr("x<->y")
+                    text: "x\u2194y" // x arrows y
                     onClicked: Hp35.key_xy()
                     width:parent.width / 5
                 }
                 Button {
-                    text: "R"
+                    text: "R \u2193" // R downarrow (Rotate stack)
                     onClicked: Hp35.key_r()
                     width:parent.width / 5
                 }
@@ -189,7 +189,7 @@ Page {
                 // Row 5
                 width: calculator.width
                 Button {
-                    text: qsTr("-")
+                    text: qsTr("\u2212") // Minus sign
                     onClicked: Hp35.key_subtract()
                     width: parent.width / 5
                 }
@@ -237,7 +237,7 @@ Page {
                 // Row 7
                 width: calculator.width
                 Button {
-                    text: qsTr("X")
+                    text: "\u00d7" // Multiplicaion sign
                     onClicked: Hp35.key_multiply()
                     width: parent.width / 5
                 }
@@ -261,7 +261,7 @@ Page {
                 // Row 8
                 width: calculator.width
                 Button {
-                    text: qsTr("/")
+                    text: "\u00f7" // Division sign
                     onClicked: Hp35.key_divide()
                     width: parent.width / 5
                 }
@@ -276,11 +276,12 @@ Page {
                     width: (parent.width - parent.width / 5) / 3
                 }
                 Button {
-                    text: qsTr("Pi")
+                    text: "\u03c0"
                     onClicked: Hp35.key_pi()
                     width: (parent.width - parent.width / 5) / 3
                 }
             }
         }
     }
+    Component.onCompleted: Hp35.key_clr()
 }
