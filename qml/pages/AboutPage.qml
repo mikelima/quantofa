@@ -43,7 +43,7 @@ Page {
                     text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
                           "<div style='font-size:large;font-weight:bold'><a href='http://github.com/mikelima/quantofa'>" +
                           qsTr("Quanto Fa") + "</a></div>" + "<div style='font-size:small;'>" +
-                          qsTr("version ") + "0.1" + "</div>"
+                          qsTr("version ") + "0.2" + "</div>"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
