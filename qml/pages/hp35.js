@@ -20,7 +20,21 @@
 */
 
 function display() {
-	calculator.display = d;
+  var displayText = ''
+    for (var i = 0; i < d.length; i++) {
+      if (d[i] === ' ') {
+	displayText += '\u2007' // Figure space (a space as large as a digit)
+      } else if (d[i] === '-') {
+	displayText += '\u2212' // Proper minus sign
+      } else {
+	displayText += d[i]
+      }
+    }
+
+  // This makes the display blink when a key is pressed,
+  // even if the text does not change
+  calculator.display = "" 
+  calculator.display = displayText
 }
 
 // The Global Registers
@@ -146,6 +160,7 @@ function key_enter() {
   mode = 0;
   arc = 0;
   auto_enter = 0;
+  display()
 }
 
 function key_r() {
