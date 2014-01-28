@@ -1,4 +1,4 @@
-quantofa
-========
+Quanto Fa
+=========
 
-Quanto Fa - an RPN calculator for SailfishOS based on the Javascript HP35 Simulator
+*Quanto Fa* is an RPN (Reverse Polish Notation) calculator for SailfishOS based on the [JavaScript HP35 Simulator](http://www.hpmuseum.org/simulate/hp35sim/hp35sim.htm).
