@@ -58,14 +58,12 @@ Page {
                             PropertyAnimation {
                                 target: screen
                                 property: "opacity"
-                                easing: Easing.Linear
                                 to: 0.3
                                 duration: 150
                             }
                             PropertyAnimation {
                                 target: screen
                                 property: "opacity"
-                                easing: Easing.Linear
                                 to: 1.0
                                 duration: 150
                             }
