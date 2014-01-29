@@ -6,18 +6,19 @@
 #         - desktop icon filename must be changed
 #         - desktop filename must be changed
 #         - icon definition filename in desktop file must be changed
-TARGET = quantofa
+
+TARGET = harbour-quantofa
 
 CONFIG += sailfishapp
 
 SOURCES += src/quantofa.cpp
 
-OTHER_FILES += qml/quantofa.qml \
+OTHER_FILES += qml/${TARGET}.qml \
     qml/cover/CoverPage.qml \
     qml/pages/CalculatorPage.qml \
     qml/pages/hp35.js \
     qml/pages/AboutPage.qml \
-    rpm/quantofa.spec \
-    rpm/quantofa.yaml \
-    quantofa.desktop \
+    rpm/${TARGET}.spec \
+    rpm/${TARGET}.yaml \
+    ${TARGET}.desktop \
 
