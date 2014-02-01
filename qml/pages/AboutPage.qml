@@ -43,7 +43,7 @@ Page {
                     text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
                           "<div style='font-size:large;font-weight:bold'><a href='http://github.com/mikelima/quantofa'>" +
                           qsTr("Quanto Fa") + "</a></div>" + "<div style='font-size:small;'>" +
-                          qsTr("version ") + "0.2.1" + "</div>"
+                          qsTr("version ") + Qt.application.version + "</div>"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
@@ -64,18 +64,19 @@ Page {
             Label {
                 width: parent.width
                 fontSizeMode: Text.Fit
+                font.pixelSize: Theme.fontSizeSmall
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
                 linkColor: Theme.highlightColor
                 text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
-                      "<div style='font-size:small'>" +
-                      qsTr("<p>Copyright (c) 2014</p>" +
-                           "<p>Luciano Montanaro " +
-                           "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>") +
-                      qsTr("<p>Copyright (c) 2004" +
-                           "<p><a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
-                      qsTr("<p>Licensed under the GNU Public License v2 or above</p>") +
-                      "</div>"
+                      "<div style='font-size:small'><p>" +
+                      qsTr("Copyright (c) 2014 Luciano Montanaro " +
+                           "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)") +
+                      "</p><p>" +
+                      qsTr("Copyright (c) 2004 <a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
+                      "</p><p>" +
+                      qsTr("Licensed under the GNU Public License v2 or above") +
+                      "</p></div>"
                 onLinkActivated: Qt.openUrlExternally(link)
             }
         }
