@@ -1,6 +1,6 @@
 Name: quantofa
 Summary: Quanto Fa, an RPN calculator
-Version: 0.2.1
+Version: 0.3
 Release: 1
 Group: Qt/Qt
 URL: http://example.org/
@@ -13,6 +13,7 @@ Description: |
   Check out the original at http://www.hpmuseum.org/simulate/hp35sim/hp35sim.htm
 Configure: none
 Builder: qtc5
+QMakeOptions: VERSION=%{version} TARGET=%{name}
 PkgConfigBR:
 - Qt5Quick
 - Qt5Qml
@@ -22,7 +23,7 @@ Requires:
 - sailfishsilica-qt5 >= 0.10.9
 Files:
 - '%{_bindir}'
-- '%{_datadir}/%{name}/qml'
+- '%{_datadir}/%{name}'
 - '%{_datadir}/applications/%{name}.desktop'
 - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
 PkgBR: []
