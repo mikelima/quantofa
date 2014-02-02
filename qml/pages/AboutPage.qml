@@ -20,64 +20,280 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
+    id: aboutPage
     SilicaListView {
         anchors.fill: parent
-        anchors.leftMargin: Theme.paddingLarge
-        anchors.rightMargin: Theme.paddingLarge
-        PageHeader {
-            id: header
-            title: qsTr("About Quanto Fa")
-        }
+        contentWidth: width
+        VerticalScrollDecorator {}
+        model: VisualItemModel {
 
-        Row {
-            id: firstSection
-            anchors.top: header.bottom
-            spacing: Theme.paddingLarge
-            Image {
-                anchors.verticalCenter: parent.verticalCenter
-                source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
+            PageHeader {
+                id: header
+                title: qsTr("About Quanto Fa")
+            }
+
+            Row {
+                id: firstSection
+                x: Theme.paddingLarge
+                width: aboutPage.width - 2 * Theme.paddingLarge
+                spacing: Theme.paddingLarge
+                Image {
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
+                }
+                Column {
+                    Label {
+                        textFormat: Text.RichText
+                        text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
+                              "<div style='font-size:large;font-weight:bold'><a href='http://github.com/mikelima/quantofa'>" +
+                              qsTr("Quanto Fa") + "</a></div>" + "<div style='font-size:small;'>" +
+                              qsTr("version ") + Qt.application.version + "</div>"
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
+                }
+            }
+            Item {
+                height: Theme.paddingLarge
+
             }
             Column {
+                id: lastSection
+                x: Theme.paddingLarge
+                width: parent.width - 2 * Theme.paddingLarge
+                spacing: Theme.paddingLarge
                 Label {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    linkColor: Theme.highlightColor
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("An RPN calculator based on the HP-35 simulator from the <a href='http://hpmuseum.org'>HP Museum</a>.")
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
+                Label {
+                    width: parent.width
+                    fontSizeMode: Text.Fit
+                    font.pixelSize: Theme.fontSizeSmall
                     textFormat: Text.RichText
+                    wrapMode: Text.WordWrap
+                    linkColor: Theme.highlightColor
                     text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
-                          "<div style='font-size:large;font-weight:bold'><a href='http://github.com/mikelima/quantofa'>" +
-                          qsTr("Quanto Fa") + "</a></div>" + "<div style='font-size:small;'>" +
-                          qsTr("version ") + Qt.application.version + "</div>"
+                          "<div style='font-size:small'><p>" +
+                          qsTr("Copyright (c) 2014 Luciano Montanaro " +
+                               "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)") +
+                          "</p><p>" +
+                          qsTr("Copyright (c) 2004 <a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
+                          "</p><p>" +
+                          qsTr("Licensed under the GNU Public License v2 or above") +
+                          "</p></div>"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
-        }
-        Column {
-            anchors.top: firstSection.bottom
-            anchors.topMargin: Theme.paddingLarge
-            width: parent.width
-            spacing: Theme.paddingLarge
-            Label {
-                width: parent.width
-                wrapMode: Text.WordWrap
-                linkColor: Theme.highlightColor
-                font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("An RPN calculator based on the HP-35 simulator for from the <a href='http://hpmuseum.org'>HP Museum</a>.")
-                onLinkActivated: Qt.openUrlExternally(link)
+            SectionHeader {
+                text: qsTr("Quick reference")
             }
-            Label {
-                width: parent.width
-                fontSizeMode: Text.Fit
-                font.pixelSize: Theme.fontSizeSmall
-                textFormat: Text.RichText
-                wrapMode: Text.WordWrap
-                linkColor: Theme.highlightColor
-                text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
-                      "<div style='font-size:small'><p>" +
-                      qsTr("Copyright (c) 2014 Luciano Montanaro " +
-                           "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)") +
-                      "</p><p>" +
-                      qsTr("Copyright (c) 2004 <a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
-                      "</p><p>" +
-                      qsTr("Licensed under the GNU Public License v2 or above") +
-                      "</p></div>"
-                onLinkActivated: Qt.openUrlExternally(link)
+            Grid {
+                id: grid
+                columns: 2
+                columnSpacing: Theme.paddingLarge
+                rowSpacing: Theme.paddingSmall
+                x: Theme.paddingLarge
+                width: aboutPage.width - 2 * Theme.paddingLarge
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("x^y")
+                }
+                Label {
+                    text: qsTr("calculate x to the power of y")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("LOG")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate the decimal logarithm of x")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("LN")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate the natural logarithm of x")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    text: qsTr("e^x")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate the exponential of x")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("CLR")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("clear the calculator memory")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                //
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: "\u221ax" // sqrt x
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate the square root of x")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    text: qsTr("ARC")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("prefix to obtain the arc functions")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("SIN")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate sin(x) or arcsin(x)")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("COS")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("calculate cos(x) or arccos(x)")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("TAN")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate tan(x) or arctan(x)")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                //
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: "1/x" // sqrt x
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("calculate the inverse of x")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    text: "x\u2194y" // x arrows y
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("exchange the x and y registers")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: "R \u2193" // R downarrow (Rotate stack)
+                }
+                Label {
+                    text: qsTr("rotate the stack (x\u2192t\u2192z\u2192y\u2192x)")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    text: qsTr("STO")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("store the content of x in memory")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("RCL")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("recall x from memory")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                //
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("ENTER")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("enter current value")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("CH S")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("change sign")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("E EX")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("enter exponent")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    width: 3 * Theme.paddingLarge
+                    font.pixelSize: Theme.fontSizeSmall
+                    text: qsTr("CL X")
+                }
+                Label {
+                    width: grid.width - 4 * Theme.paddingLarge
+                    text: qsTr("clear the x register")
+                    color: Theme.secondaryColor
+                    wrapMode: Text.WordWrap
+                }
+                //
             }
         }
     }
