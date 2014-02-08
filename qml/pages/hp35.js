@@ -22,12 +22,16 @@
 function display() {
   var displayText = ''
     for (var i = 0; i < d.length; i++) {
-      if (d[i] === ' ') {
+      var c = d[i]
+      if (c === ' ') {
 	displayText += '\u2007' // Figure space (a space as large as a digit)
-      } else if (d[i] === '-') {
+      } else if (c === '-') {
 	displayText += '\u2212' // Proper minus sign
+      } else if (c === '.') {
+          displayText += Qt.locale().decimalPoint
+
       } else {
-	displayText += d[i]
+    displayText += c
       }
     }
 
