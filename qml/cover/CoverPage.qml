@@ -25,6 +25,27 @@ CoverBackground {
         anchors.fill: parent
         text: qsTr("Quanto Fa")
         icon.source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
+        visible: application.display.length === 0
+    }
+    Image {
+        source: "../../pics/graphic-cover-quantofa.png"
+        Label {
+            anchors {
+                top: parent.top
+                margins: Theme.paddingLarge
+                left: parent.left
+                right:parent.right
+            }
+
+            height: Theme.fontSizeHuge
+            text: application.display.trim()
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeHuge
+            fontSizeMode: Text.HorizontalFit
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
+        visible: application.display.length !== 0
     }
 }
 

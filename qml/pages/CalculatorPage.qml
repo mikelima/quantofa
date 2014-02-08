@@ -23,8 +23,8 @@ import "hp35.js" as Hp35
 
 
 Page {
-    property string display: "0.0"
     id: calculator
+    property string display
 
     SilicaFlickable {
         anchors.fill: parent

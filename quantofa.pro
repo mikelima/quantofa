@@ -34,6 +34,8 @@ OTHER_FILES += qml/quantofa.qml \
     qml/pages/CalculatorPage.qml \
     qml/pages/hp35.js \
     qml/pages/AboutPage.qml \
+    pics/graphics-cover-quantofa.png \
+    pics/graphics-cover-quantofa.svg \
     rpm/quantofa.spec \
     rpm/quantofa.yaml \
     quantofa.desktop
@@ -49,6 +51,11 @@ i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
 i18n.path = /usr/share/$$TARGET/i18n
 
 INSTALLS += i18n
+
+pics.files = pics/*.png
+pics.path = /usr/share/$$TARGET/pics
+
+INSTALLS += pics
 
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += VERSION_STRING=\"$${VERSION_STRING}\"
