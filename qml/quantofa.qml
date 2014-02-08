@@ -23,7 +23,14 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { CalculatorPage { } }
+    id: application
+    property string display
+
+    initialPage: Component {
+        CalculatorPage {
+            onDisplayChanged: application.display = display
+        }
+    }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 }
 
