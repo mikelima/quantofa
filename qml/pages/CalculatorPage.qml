@@ -19,8 +19,8 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../components"
 import "hp35.js" as Hp35
-
 
 Page {
     id: calculator
@@ -93,27 +93,27 @@ Page {
                 Row {
                     width: calculator.width
                     // Row 1
-                    Button {
+                    KeyButton {
                         text: "x^y"
                         onClicked: Hp35.key_pow()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "LOG"
                         onClicked: Hp35.key_log()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "LN"
                         onClicked: Hp35.key_ln()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "e^x" // e^x
                         onClicked: Hp35.key_epow()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "CLR"
                         onClicked: Hp35.key_clr()
                         width:parent.width / 5
@@ -122,27 +122,27 @@ Page {
                 Row {
                     // Row 2
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: "\u221ax" // sqrt x
                         onClicked: Hp35.key_sqrt()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "ARC"
                         onClicked: Hp35.key_arc()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "SIN"
                         onClicked: Hp35.key_sin()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "COS"
                         onClicked: Hp35.key_cos()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "TAN"
                         onClicked: Hp35.key_tan()
                         width:parent.width / 5
@@ -151,27 +151,27 @@ Page {
                 Row {
                     // Row 3
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: "1/x"
                         onClicked: Hp35.key_inv()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "x\u2194y" // x arrows y
                         onClicked: Hp35.key_xy()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "R \u2193" // R downarrow (Rotate stack)
                         onClicked: Hp35.key_r()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "STO"
                         onClicked: Hp35.key_sto()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "RCL"
                         onClicked: Hp35.key_rcl()
                         width:parent.width / 5
@@ -180,22 +180,22 @@ Page {
                 Row {
                     // Row 4
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: qsTr("ENTER")
                         onClicked: Hp35.key_enter()
                         width: 2 * parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: qsTr("CH S")
                         onClicked: Hp35.key_chs()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: qsTr("E EX")
                         onClicked: Hp35.key_eex()
                         width:parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: qsTr("CL X")
                         onClicked: Hp35.key_clx()
                         width:parent.width / 5
@@ -204,22 +204,22 @@ Page {
                 Row {
                     // Row 5
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: qsTr("\u2212") // Minus sign
                         onClicked: Hp35.key_subtract()
                         width: parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "7"
                         onClicked: Hp35.key_num(7)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "8"
                         onClicked: Hp35.key_num(8)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "9"
                         onClicked: Hp35.key_num(9)
                         width: (parent.width - parent.width / 5) / 3
@@ -228,22 +228,22 @@ Page {
                 Row {
                     // Row 6
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: "+"
                         onClicked: Hp35.key_add()
                         width: parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "4"
                         onClicked: Hp35.key_num(4)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "5"
                         onClicked: Hp35.key_num(5)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "6"
                         onClicked: Hp35.key_num(6)
                         width: (parent.width - parent.width / 5) / 3
@@ -252,22 +252,22 @@ Page {
                 Row {
                     // Row 7
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: "\u00d7" // Multiplicaion sign
                         onClicked: Hp35.key_multiply()
                         width: parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "1"
                         onClicked: Hp35.key_num(1)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "2"
                         onClicked: Hp35.key_num(2)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "3"
                         onClicked: Hp35.key_num(3)
                         width: (parent.width - parent.width / 5) / 3
@@ -276,22 +276,22 @@ Page {
                 Row {
                     // Row 8
                     width: calculator.width
-                    Button {
+                    KeyButton {
                         text: "\u00f7" // Division sign
                         onClicked: Hp35.key_divide()
                         width: parent.width / 5
                     }
-                    Button {
+                    KeyButton {
                         text: "0"
                         onClicked: Hp35.key_num(0)
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: qsTr(".")
                         onClicked: Hp35.key_decimal()
                         width: (parent.width - parent.width / 5) / 3
                     }
-                    Button {
+                    KeyButton {
                         text: "\u03c0"
                         onClicked: Hp35.key_pi()
                         width: (parent.width - parent.width / 5) / 3

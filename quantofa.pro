@@ -31,6 +31,7 @@ QMLSOURCES +=  qml/quantofa.qml \
 
 OTHER_FILES += qml/quantofa.qml \
     qml/cover/CoverPage.qml \
+    qml/components/KeyButton.qml \
     qml/pages/CalculatorPage.qml \
     qml/pages/hp35.js \
     qml/pages/AboutPage.qml \
@@ -38,7 +39,7 @@ OTHER_FILES += qml/quantofa.qml \
     pics/graphics-cover-quantofa.svg \
     rpm/quantofa.spec \
     rpm/quantofa.yaml \
-    quantofa.desktop
+    quantofa.desktop \
 
 lupdate_only {
     SOURCES += $$QMLSOURCES
