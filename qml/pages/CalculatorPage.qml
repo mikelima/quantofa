@@ -24,13 +24,14 @@ import "hp35.js" as Hp35
 
 Page {
     id: calculator
+    anchors.fill: parent
     property string display
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: displayArea.height + keyboard.height
+        contentHeight: Math.max(parent.height, displayArea.height + keyboard.height)
 
-        PullDownMenu {
+        PushUpMenu {
             MenuItem {
                 text: qsTr("About Quanto Fa")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
@@ -41,7 +42,11 @@ Page {
             id: displayArea
 
             width: calculator.width
+            height: parent.height - keyboard.height
             spacing: Theme.paddingMedium
+            anchors.top: parent.top
+            //anchors.bottom: keyboard.top
+            anchors.bottomMargin: Theme.paddingLarge
             PageHeader {
                 title: qsTr("Quanto Fa")
             }
@@ -76,8 +81,9 @@ Page {
             id: keyboard
             width: calculator.width
             height: keys.height
+            //anchors.bottom: calculator.bottom
             anchors.top: displayArea.bottom
-            anchors.topMargin: Theme.paddingLarge
+            //anchors.topMargin: Theme.paddingLarge
             Image {
                 id: gradient
                 width: keyboard.width
@@ -88,13 +94,13 @@ Page {
             Column {
                 id: keys
                 anchors.top: gradient.top
-                anchors.topMargin: Theme.paddingLarge
-                spacing: Theme.paddingSmall
+                //anchors.topMargin: Theme.paddingLarge
+                //spacing: Theme.paddingSmall
                 Row {
                     width: calculator.width
                     // Row 1
                     KeyButton {
-                        text: "x^y"
+                        text: "<table align=center><tr><td valign=bottom>x</td><td valign=top><font size=small>y</font></td></tr></table>" // x^y,
                         onClicked: Hp35.key_pow()
                         width:parent.width / 5
                     }
@@ -109,11 +115,13 @@ Page {
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "e^x" // e^x
+                        text: "<table align=center><tr><td valign=bottom>e</td><td valign=top><font size=small>x</font></td></tr></table>" // e^x
                         onClicked: Hp35.key_epow()
                         width:parent.width / 5
                     }
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: "CLR"
                         onClicked: Hp35.key_clr()
                         width:parent.width / 5
@@ -123,7 +131,7 @@ Page {
                     // Row 2
                     width: calculator.width
                     KeyButton {
-                        text: "\u221ax" // sqrt x
+                        text: "\u221a<span style='text-decoration:overline;'>x&nbsp;</span>" // sqrt x
                         onClicked: Hp35.key_sqrt()
                         width:parent.width / 5
                     }
@@ -182,20 +190,28 @@ Page {
                     width: calculator.width
                     KeyButton {
                         text: qsTr("ENTER")
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         onClicked: Hp35.key_enter()
                         width: 2 * parent.width / 5
                     }
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: qsTr("CH S")
                         onClicked: Hp35.key_chs()
                         width:parent.width / 5
                     }
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: qsTr("E EX")
                         onClicked: Hp35.key_eex()
                         width:parent.width / 5
                     }
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: qsTr("CL X")
                         onClicked: Hp35.key_clx()
                         width:parent.width / 5
@@ -205,6 +221,8 @@ Page {
                     // Row 5
                     width: calculator.width
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: qsTr("\u2212") // Minus sign
                         onClicked: Hp35.key_subtract()
                         width: parent.width / 5
@@ -229,6 +247,8 @@ Page {
                     // Row 6
                     width: calculator.width
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: "+"
                         onClicked: Hp35.key_add()
                         width: parent.width / 5
@@ -253,6 +273,8 @@ Page {
                     // Row 7
                     width: calculator.width
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: "\u00d7" // Multiplicaion sign
                         onClicked: Hp35.key_multiply()
                         width: parent.width / 5
@@ -277,6 +299,8 @@ Page {
                     // Row 8
                     width: calculator.width
                     KeyButton {
+                        labelColor: Theme.highlightColor
+                        baseColor: Theme.secondaryHighlightColor
                         text: "\u00f7" // Division sign
                         onClicked: Hp35.key_divide()
                         width: parent.width / 5
