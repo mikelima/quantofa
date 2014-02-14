@@ -21,28 +21,25 @@ import QtQuick 2.0
 import QtFeedback 5.0
 import Sailfish.Silica 1.0
 
-Rectangle {
+BackgroundItem {
     id: root
-    property alias pressed: mouseArea.pressed
     property color baseColor: "transparent"
     property color labelColor: Theme.primaryColor
     property alias text: label.text
-    signal clicked()
-
     height: Theme.itemSizeSmall
-    color: pressed ? Qt.darker(Theme.secondaryHighlightColor) : baseColor
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        onPressed: clickEffect.play()
-        onReleased: clickEffect.play()
-        onClicked: root.onClicked()
+    contentHeight: Theme.itemSizeSmall
+    onPressed: clickEffect.play()
+    Rectangle {
+        anchors.fill:parent
+        color: Theme.rgba(baseColor, 0.3)
+       visible: !Qt.colorEqual(baseColor, "transparent")
     }
     Label {
         id: label
         anchors.fill: parent
         color: root.pressed ? Theme.highlightColor : labelColor
-        font.pixelSize: Theme.fontSizeLarge
+        font.pixelSize: Theme.fontSizeExtraLarge
+        font.family: Theme.fontFamilyHeading
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         textFormat: Text.RichText
@@ -53,16 +50,4 @@ Rectangle {
         id: clickEffect
         effect: ThemeEffect.PressWeak
     }
-    Component.onCompleted: mouseArea.clicked.connect(clicked)
 }
-/*
-Button {
-    id: button
-    onPressed: clickEffect.play()
-    onReleased: clickEffect.play()
-    ThemeEffect {
-        id: clickEffect
-        effect: ThemeEffect.PressWeak
-    }
-}
-*/
