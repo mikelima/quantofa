@@ -29,7 +29,7 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: Math.max(parent.height, displayArea.height + keyboard.height)
+        contentHeight: parent.height
 
         PushUpMenu {
             MenuItem {
