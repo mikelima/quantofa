@@ -21,7 +21,7 @@ CONFIG += sailfishapp
 
 SOURCES += src/quantofa.cpp
 
-OTHER_FILES += qml/${TARGET}.qml \
+OTHER_FILES += qml/quantofa.qml \
     qml/cover/CoverPage.qml \
     qml/components/KeyButton.qml \
     qml/pages/CalculatorPage.qml \
