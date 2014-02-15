@@ -54,7 +54,7 @@
     </message>
     <message>
         <source>x^y</source>
-        <translation>x^y</translation>
+        <translation type="obsolete">x^y</translation>
     </message>
     <message>
         <source>calculate x to the power of y</source>
@@ -78,7 +78,7 @@
     </message>
     <message>
         <source>e^x</source>
-        <translation>e^x</translation>
+        <translation type="obsolete">e^x</translation>
     </message>
     <message>
         <source>calculate the exponential of x</source>
@@ -217,11 +217,19 @@
     </message>
     <message>
         <source>−</source>
-        <translation>−</translation>
+        <translation type="obsolete">−</translation>
     </message>
     <message>
         <source>.</source>
         <translation>,</translation>
+    </message>
+    <message>
+        <source>Error!</source>
+        <translation>Errore!</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;−&lt;/b&gt;</source>
+        <translation>&lt;b&gt;−&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
