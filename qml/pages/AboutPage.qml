@@ -100,7 +100,7 @@ Page {
                 width: aboutPage.width - 2 * Theme.paddingLarge
                 Label {
                     width: 3 * Theme.paddingLarge
-                    text: qsTr("x^y")
+		    text: "<table align=center><tr><td valign=bottom>x</td><td valign=top><font size=small>y</font></td></tr></table>" // x^y,
                 }
                 Label {
                     text: qsTr("calculate x to the power of y")
@@ -128,7 +128,7 @@ Page {
                     wrapMode: Text.WordWrap
                 }
                 Label {
-                    text: qsTr("e^x")
+                    text: "<table align=center><tr><td valign=bottom>e</td><td valign=top><font size=small>x</font></td></tr></table>" // e^x
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -149,7 +149,7 @@ Page {
                 //
                 Label {
                     width: 3 * Theme.paddingLarge
-                    text: "\u221ax" // sqrt x
+		    text: "\u221a<span style='text-decoration:overline;'>x&nbsp;</span>" // sqrt x
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
