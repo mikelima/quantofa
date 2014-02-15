@@ -101,6 +101,7 @@ Page {
                 Label {
                     width: 3 * Theme.paddingLarge
 		    text: "<table align=center><tr><td valign=bottom>x</td><td valign=top><font size=small>y</font></td></tr></table>" // x^y,
+                    textFormat: Text.RichText
                 }
                 Label {
                     text: qsTr("calculate x to the power of y")
@@ -129,6 +130,7 @@ Page {
                 }
                 Label {
                     text: "<table align=center><tr><td valign=bottom>e</td><td valign=top><font size=small>x</font></td></tr></table>" // e^x
+                    textFormat: Text.RichText
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -150,6 +152,7 @@ Page {
                 Label {
                     width: 3 * Theme.paddingLarge
 		    text: "\u221a<span style='text-decoration:overline;'>x&nbsp;</span>" // sqrt x
+                    textFormat: Text.RichText
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
