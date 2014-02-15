@@ -20,33 +20,34 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-CoverBackground {
-    CoverPlaceholder {
-        anchors.fill: parent
-        text: qsTr("Quanto Fa")
-        icon.source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
-        visible: application.display.length === 0
+BackgroundItem {
+    id: root
+    property color baseColor: "transparent"
+    property color labelColor: Theme.primaryColor
+    property alias text: label.text
+    height: Theme.itemSizeSmall
+    contentHeight: Theme.itemSizeSmall
+    onPressed: {
+        if (clickEffect)
+            clickEffect.play()
     }
-    Image {
-        source: "../../pics/graphic-cover-quantofa.png"
-        Label {
-            anchors {
-                top: parent.top
-                margins: Theme.paddingLarge
-                left: parent.left
-                right:parent.right
-            }
-
-            height: Theme.fontSizeHuge
-            text: application.display.trim()
-            color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeHuge
-            fontSizeMode: Text.HorizontalFit
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-        visible: application.display.length !== 0
+    onReleased: {
+        if (clickEffect)
+            clickEffect.play()
+    }
+    Rectangle {
+        anchors.fill:parent
+        color: Theme.rgba(baseColor, 0.3)
+       visible: !Qt.colorEqual(baseColor, "transparent")
+    }
+    Label {
+        id: label
+        anchors.fill: parent
+        color: root.pressed ? Theme.highlightColor : labelColor
+        font.pixelSize: Theme.fontSizeExtraLarge
+        font.family: Theme.fontFamilyHeading
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        textFormat: Text.RichText
     }
 }
-
-

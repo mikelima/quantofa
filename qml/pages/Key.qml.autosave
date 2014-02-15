@@ -19,19 +19,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "pages"
 
-ApplicationWindow
-{
-    id: application
-    property string display
-
-    initialPage: Component {
-        CalculatorPage {
-            onDisplayChanged: application.display = display
-        }
-    }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
+Rectangle {
 }
-
-
