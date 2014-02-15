@@ -26,6 +26,7 @@ Page {
     id: calculator
     anchors.fill: parent
     property string display
+    property QtObject clickEffect
 
     SilicaFlickable {
         anchors.fill: parent
@@ -324,5 +325,8 @@ Page {
             }
         }
     }
-    Component.onCompleted: Hp35.key_clr()
+    Component.onCompleted: {
+        Hp35.key_clr()
+        clickEffect = Qt.createQmlObject("import QtQuick 2.0; import QtFeedback 5.0; ThemeEffect { effect: ThemeEffect.PressWeak }", calculator, "ThemeEffect")
+    }
 }

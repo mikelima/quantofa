@@ -18,7 +18,6 @@
 */
 
 import QtQuick 2.0
-import QtFeedback 5.0
 import Sailfish.Silica 1.0
 
 BackgroundItem {
@@ -28,7 +27,14 @@ BackgroundItem {
     property alias text: label.text
     height: Theme.itemSizeSmall
     contentHeight: Theme.itemSizeSmall
-    onPressed: clickEffect.play()
+    onPressed: {
+        if (clickEffect)
+            clickEffect.play()
+    }
+    onReleased: {
+        if (clickEffect)
+            clickEffect.play()
+    }
     Rectangle {
         anchors.fill:parent
         color: Theme.rgba(baseColor, 0.3)
@@ -43,11 +49,5 @@ BackgroundItem {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         textFormat: Text.RichText
-    }
-    Text {
-    }
-    ThemeEffect {
-        id: clickEffect
-        effect: ThemeEffect.PressWeak
     }
 }
