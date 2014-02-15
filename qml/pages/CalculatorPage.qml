@@ -56,7 +56,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Label {
                     id: screen
-                    text: calculator.display
+                    text: calculator.display.match("Xx") ? qsTr("Error!") : calculator.display
                     font.pixelSize: Theme.fontSizeHuge
                     width: parent.width
                     Behavior on text {

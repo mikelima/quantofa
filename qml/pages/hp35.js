@@ -21,23 +21,21 @@
 
 function display() {
   var displayText = ''
-    for (var i = 0; i < d.length; i++) {
-      var c = d[i]
-      if (c === ' ') {
-	displayText += '\u2007' // Figure space (a space as large as a digit)
-      } else if (c === '-') {
-	displayText += '\u2212' // Proper minus sign
-      } else if (c === '.') {
-          displayText += Qt.locale().decimalPoint
-
-      } else {
-    displayText += c
-      }
+  for (var i = 0; i < d.length; i++) {
+    var c = d[i]
+    if (c === ' ') {
+      displayText += '\u2007' // Figure space (a space as large as a digit)
+    } else if (c === '-') {
+      displayText += '\u2212' // Proper minus sign
+    } else if (c === '.') {
+      displayText += Qt.locale().decimalPoint
+    } else {
+      displayText += c
     }
-
+  }
   // This makes the display blink when a key is pressed,
   // even if the text does not change
-  calculator.display = "" 
+  calculator.display = ""
   calculator.display = displayText
 }
 
@@ -54,7 +52,7 @@ var mode = 0;
 //-1 - Typing a digit will replace x, and be negative (CH S)
 // 0 - Typing a digit will replace x
 // 1 - Typing a digit will append to x
-// 2 - Typing a digit will append to x after decimal
+// 2 - `/Typing a digit will append to x after decimal
 // 3 - Typing a digit will appear in the exponent
 
 // The Arc Mode
