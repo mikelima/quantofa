@@ -82,21 +82,16 @@ Page {
             id: keyboard
             width: calculator.width
             height: keys.height
-            //anchors.bottom: calculator.bottom
             anchors.top: displayArea.bottom
-            //anchors.topMargin: Theme.paddingLarge
             Image {
                 id: gradient
                 width: keyboard.width
-                //height: Theme.itemSizeLarge
                 anchors.top: keyboard.top
                 source: "image://theme/graphic-gradient-edge"
             }
             Column {
                 id: keys
                 anchors.top: gradient.top
-                //anchors.topMargin: Theme.paddingLarge
-                //spacing: Theme.paddingSmall
                 Row {
                     width: calculator.width
                     // Row 1
