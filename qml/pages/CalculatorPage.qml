@@ -219,7 +219,7 @@ Page {
                     KeyButton {
                         labelColor: Theme.highlightColor
                         baseColor: Theme.secondaryHighlightColor
-                        text: qsTr("\u2212") // Minus sign
+                        text: qsTr("<b>\u2212</b>") // Minus sign
                         onClicked: Hp35.key_subtract()
                         width: parent.width / 5
                     }
@@ -245,7 +245,7 @@ Page {
                     KeyButton {
                         labelColor: Theme.highlightColor
                         baseColor: Theme.secondaryHighlightColor
-                        text: "+"
+                        text: "<b>+</b>"
                         onClicked: Hp35.key_add()
                         width: parent.width / 5
                     }
@@ -271,7 +271,7 @@ Page {
                     KeyButton {
                         labelColor: Theme.highlightColor
                         baseColor: Theme.secondaryHighlightColor
-                        text: "\u00d7" // Multiplicaion sign
+                        text: "<b>\u00d7</b>" // Multiplicaion sign
                         onClicked: Hp35.key_multiply()
                         width: parent.width / 5
                     }
@@ -297,7 +297,7 @@ Page {
                     KeyButton {
                         labelColor: Theme.highlightColor
                         baseColor: Theme.secondaryHighlightColor
-                        text: "\u00f7" // Division sign
+                        text: "<b>\u00f7</b>" // Division sign
                         onClicked: Hp35.key_divide()
                         width: parent.width / 5
                     }
