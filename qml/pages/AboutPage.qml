@@ -110,7 +110,7 @@ Page {
                 }
                 Label {
                     width: 3 * Theme.paddingLarge
-                    text: qsTr("LOG")
+                    text: qsTr("Log")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -161,7 +161,7 @@ Page {
                     wrapMode: Text.WordWrap
                 }
                 Label {
-                    text: qsTr("ARC")
+                    text: qsTr("arc")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -171,7 +171,7 @@ Page {
                 }
                 Label {
                     width: 3 * Theme.paddingLarge
-                    text: qsTr("SIN")
+                    text: qsTr("sin")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -181,7 +181,7 @@ Page {
                 }
                 Label {
                     width: 3 * Theme.paddingLarge
-                    text: qsTr("COS")
+                    text: qsTr("cos")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge
@@ -193,7 +193,7 @@ Page {
                 Label {
                     width: 3 * Theme.paddingLarge
                     font.pixelSize: Theme.fontSizeSmall
-                    text: qsTr("TAN")
+                    text: qsTr("tan")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge

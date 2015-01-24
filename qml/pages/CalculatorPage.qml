@@ -101,7 +101,7 @@ Page {
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "LOG"
+                        text: "Log"
                         onClicked: Hp35.key_log()
                         width:parent.width / 5
                     }
@@ -132,22 +132,22 @@ Page {
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "ARC"
+                        text: "arc"
                         onClicked: Hp35.key_arc()
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "SIN"
+                        text: "sin"
                         onClicked: Hp35.key_sin()
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "COS"
+                        text: "cos"
                         onClicked: Hp35.key_cos()
                         width:parent.width / 5
                     }
                     KeyButton {
-                        text: "TAN"
+                        text: "tan"
                         onClicked: Hp35.key_tan()
                         width:parent.width / 5
                     }
