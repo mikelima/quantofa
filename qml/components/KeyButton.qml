@@ -25,8 +25,8 @@ BackgroundItem {
     property color baseColor: "transparent"
     property color labelColor: Theme.primaryColor
     property alias text: label.text
-    height: Theme.itemSizeSmall
-    contentHeight: Theme.itemSizeSmall
+    height: Theme.itemSizeSmall + Theme.paddingSmall
+    contentHeight: Theme.itemSizeSmall + Theme.paddingSmall
     onPressed: {
         if (clickEffect)
             clickEffect.play()
