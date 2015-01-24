@@ -3,7 +3,7 @@ Summary: Quanto Fa, an RPN calculator
 Version: 0.5.3
 Release: 1
 Group: Qt/Qt
-URL: http://example.org/
+URL: https://github.com/mikelima/quantofa
 License: GPL v2 or above
 Sources:
 - '%{name}-%{version}.tar.bz2'
@@ -22,6 +22,12 @@ PkgConfigBR:
 Requires:
 - sailfishsilica-qt5 >= 0.10.9
 Files:
+- /usr/share/icons/hicolor/86x86/apps
+- /usr/share/applications
+- /usr/share/quantofa
+- /usr/share/quantofa/pics
+- /usr/share/quantofa/i18n
+- /usr/bin
 - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
 - '%{_datadir}/applications/%{name}.desktop'
 - '%{_datadir}/%{name}'
