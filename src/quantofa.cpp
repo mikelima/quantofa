@@ -63,6 +63,5 @@ int main(int argc, char *argv[])
     view->setSource(SailfishApp::pathTo("qml/quantofa.qml").toLocalFile());
     view->show();
     return app->exec();
-    //return SailfishApp::main(argc, argv);
 }
 
