@@ -40,8 +40,11 @@ INSTALLS += i18n
 
 pics.files = pics/*.png
 pics.path = /usr/share/$$TARGET/pics
-
 INSTALLS += pics
+
+appicons.files = appicons/*
+appicons.path = /usr/share/icons/hicolor
+INSTALLS += appicons
 
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += VERSION_STRING=\"$${VERSION_STRING}\"
