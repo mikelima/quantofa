@@ -24,7 +24,7 @@ CoverBackground {
     CoverPlaceholder {
         anchors.fill: parent
         text: qsTr("Quanto Fa")
-        icon.source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
+        icon.source: "/usr/share/icons/hicolor/86x86/apps/harbour-quantofa.png"
         visible: application.display.length === 0
     }
     Image {

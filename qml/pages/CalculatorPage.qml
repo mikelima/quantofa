@@ -26,6 +26,7 @@ Page {
     id: calculator
     anchors.fill: parent
     property string display
+    property bool trigArcMode
     property QtObject clickEffect
 
     SilicaFlickable {
@@ -75,6 +76,17 @@ Page {
                             }
                         }
                     }
+                }
+            }
+            Row {
+                width: calculator.width - 4 * Theme.paddingLarge
+                anchors.horizontalCenter: parent.horizontalCenter
+                TextSwitch {
+                    id: arcModeIndicator
+                    text: qsTr("Arc")
+                    automaticCheck: false
+                    checked: calculator.trigArcMode
+                    highlighted: true
                 }
             }
         }
@@ -194,7 +206,7 @@ Page {
                     KeyButton {
                         labelColor: Theme.highlightColor
                         baseColor: Theme.secondaryHighlightColor
-                        text: qsTr("CH S")
+                        text: qsTr("+/\u2212")
                         onClicked: Hp35.key_chs()
                         width:parent.width / 5
                     }
@@ -307,7 +319,8 @@ Page {
                         width: (parent.width - parent.width / 5) / 3
                     }
                     KeyButton {
-                        text: qsTr(".")
+                        // text: qsTr(".")
+                        text: Qt.locale().decimalPoint
                         onClicked: Hp35.key_decimal()
                         width: (parent.width - parent.width / 5) / 3
                     }

@@ -39,6 +39,10 @@ function display() {
   calculator.display = displayText
 }
 
+function updateIndicators() {
+  calculator.trigArcMode = !(arc === 0)
+}
+
 // The Global Registers
 var x; // 1st register (mapped onto the display)
 var y; // 2nd register
@@ -67,7 +71,7 @@ function x2d() {
   // e.g.  6 => ' 6.'
   // Sometimes has the side-effect of resetting 'x' to a legal value.
   var MaxFloat = 9.999999999 * Math.pow(10, 99);
-  if (isNaN(x) || x == Number.NEGATIVE_INFINITY || x == Number.POSITIVE_INFINITY) {
+  if (isNaN(x) || x === Number.NEGATIVE_INFINITY || x === Number.POSITIVE_INFINITY) {
     // "improper operations flash display"
     d = ' Xx';
     x = 0;
@@ -91,7 +95,7 @@ function x2d() {
         d = d/10;
       }
       ext = ' '+ext;
-    } else if (d != 0 && Math.abs(d) < .01) {
+    } else if (d !== 0 && Math.abs(d) < .01) {
       // switch to exponential notation
       ext = 0;
       while (Math.abs(d) < 1) {
@@ -112,14 +116,14 @@ function x2d() {
     if (!ext) // Round away some rounding errors on simple numbers.
       d = Math.round(d*10000000000)/10000000000;
     if (x < 0)
-      d = '-'+(-d);
+      d = '-' + (-d);
     else
       d = ' '+d;
-    if (d.indexOf('.') == -1)
+    if (d.indexOf('.') === -1)
       d = d + '.';
-    if (d.length > 3 && d.charAt(1) == '0' && d.charAt(2) == '.')
+    if (d.length > 3 && d.charAt(1) === '0' && d.charAt(2) === '.')
       d = d.charAt(0) + d.substring(2);
-    d = (d+"               ").substring(0, 12)+ext;
+    d = (d + "               ").substring(0, 12)+ext;
   }
   // Display the result.
   display();
@@ -128,10 +132,10 @@ function x2d() {
 function d2x() {
   // Convert the display digits for 'd' into the JavaScript number 'x'.
   // e.g.  ' 06.0' => 6
-  x = parseFloat((d+"               ").substring(0, 12));
+  x = parseFloat((d + "               ").substring(0, 12));
   if (isNaN(x)) x = 0;
 
-  var ext = (d+"               ").substring(12, 15);
+  var ext = (d + "               ").substring(12, 15);
   ext = parseInt(ext, 10);
 
   if (!isNaN(ext))
@@ -313,16 +317,19 @@ function key_inv() {
   mode = 0;
   arc = 0;
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_arc() {
-  arc = 1;
+  // arc = 1; The original behavior is a bit inconvenient
+  arc ^= 1; // So change it so that the key acts as a toggle
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_sin() {
   d2x();
-  if (arc == 1) {
+  if (arc === 1) {
     var angle = Math.asin(x);
     x = angle * 180 / Math.PI;
   } else {
@@ -334,11 +341,12 @@ function key_sin() {
   mode = 0;
   arc = 0;
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_cos() {
   d2x();
-  if (arc == 1) {
+  if (arc === 1) {
     var angle = Math.acos(x);
     x = angle * 180 / Math.PI;
   } else {
@@ -350,11 +358,12 @@ function key_cos() {
   mode = 0;
   arc = 0;
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_tan() {
   d2x();
-  if (arc == 1) {
+  if (arc === 1) {
     var angle = Math.atan(x);
     x = angle * 180 / Math.PI;
   } else {
@@ -366,50 +375,53 @@ function key_tan() {
   mode = 0;
   arc = 0;
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_eex() {
   d2x();
-  if (x == 0)
+  if (x === 0)
     key_num(1);
   // 'EEX' automatically presses '1' for you if the display equals zero.
   mode = 3;
   arc = 0;
   auto_enter = 1;
+  updateIndicators();
 }
 
 function key_chs() {
-  if (mode == 3) {
+  if (mode === 3) {
     // Exponential mode
-    if ((d+"               ").substring(12, 15) == "   ") {
+    if ((d + "               ").substring(12, 15) == "   ") {
       // Only works if exponent is empty.
-      d = (d+"               ").substring(0, 12)+"-00";
+      d = (d + "               ").substring(0, 12)+"-00";
       display();
     }
   } else {
     // Integer and decimal modes
-    if (d.charAt(0) == "-")
-      d = " "+d.substring(1);
+    if (d.charAt(0) === "-")
+      d = " " + d.substring(1);
     else
-      d = "-"+d.substring(1);
+      d = "-" + d.substring(1);
     display();
-    if (mode == 0) // New number mode
+    if (mode === 0) // New number mode
       mode = -1; // HP-35 has a very broken CHS implementation
   }
   arc = 0;
+  updateIndicators();
 }
 
 function key_decimal() {
-  if (mode == 4) {
+  if (mode === 4) {
     // The decimal key == the 0 key in exponent mode.  Interesting.
     key_num(0);
   } else {
-    if (mode == -1) {
+    if (mode === -1) {
       x2d(); // restore old number (prior to CH S)
       if (auto_enter) key_enter();
       d = '-.';
       x = 0;
-    } else if (mode == 0) {
+    } else if (mode === 0) {
       if (auto_enter) key_enter();
       d = ' .';
       x = 0;
@@ -418,38 +430,40 @@ function key_decimal() {
     mode = 2;
     arc = 0;
   }
+  updateIndicators();
 }
 
 function key_num(num) {
-  if (mode == 3) {
+  if (mode === 3) {
     // Exponential mode
-    var exp = (d+"                ").charAt(14);
-    if (exp == " ") exp = '0';
+    var exp = (d + "                ").charAt(14);
+    if (exp === " ") exp = '0';
     d = (d+"                ").substring(0, 13)+exp+num;
-  } else if (mode == -1) {
+  } else if (mode === -1) {
     x2d(); // restore old number (prior to CH S)
     if (auto_enter) key_enter();
     d = '-'+num+'.';
     mode = 1;
-  } else if (mode == 0) {
+  } else if (mode === 0) {
     if (auto_enter) key_enter();
     d = ' '+num+'.';
     mode = 1;
   } else if (d.length >= 12) {
     return; // Too many digits.
-  } else if (mode == 1) {
+  } else if (mode === 1) {
     // Integer mode
     var dec = d.indexOf('.');
     d = d.substring(0, dec) + num + '.';
-  } else if (mode == 2) {
+  } else if (mode === 2) {
     // Decimal mode
     d = d + num;
   }
   display();
   d2x();
   arc = 0;
+  updateIndicators();
 }
 
 function about() {
-  alert('HP-35 simulator in JavaScript\nfor the HP Museum (http://hpmuseum.org)\nby Neil Fraser (http://neil.fraser.name)\nMarch 2004, Elgin, Scotland.');
+  return 'HP-35 simulator in JavaScript\nfor the HP Museum (http://hpmuseum.org)\nby Neil Fraser (http://neil.fraser.name)\nMarch 2004, Elgin, Scotland.';
 }

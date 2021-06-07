@@ -51,3 +51,6 @@ DEFINES += VERSION_STRING=\"$${VERSION_STRING}\"
 
 APPLICATION_NAME = '\\"$${NAME}\\"'
 DEFINES += APPLICATION_NAME=\"$${APPLICATION_NAME}\"
+
+DISTFILES += \
+    rpm/harbour-quantofa.yaml

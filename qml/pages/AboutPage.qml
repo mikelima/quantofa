@@ -18,6 +18,7 @@
 */
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "hp35.js" as Hp35
 
 Page {
     id: aboutPage
@@ -39,7 +40,7 @@ Page {
                 spacing: Theme.paddingLarge
                 Image {
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "/usr/share/icons/hicolor/86x86/apps/quantofa.png"
+                    source: "/usr/share/icons/hicolor/86x86/apps/harbour-quantofa.png"
                 }
                 Column {
                     Label {
@@ -78,15 +79,29 @@ Page {
                     linkColor: Theme.highlightColor
                     text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
                           "<div style='font-size:small'><p>" +
-                          qsTr("Copyright (c) 2014 Luciano Montanaro " +
+                          qsTr("Copyright (c) 2014,2021 Luciano Montanaro " +
                                "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)") +
                           "</p><p>" +
                           qsTr("Copyright (c) 2004 <a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
                           "</p><p>" +
                           qsTr("Licensed under the GNU Public License v2 or above") +
-                          "</p></div>"
+                          "</p></div><div style='font-size:small'>" + Hp35.about() + "</div>"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
+            }
+            SectionHeader {
+                text: qsTr("HP35 License")
+            }
+            Label {
+                width: parent.width
+                fontSizeMode: Text.Fit
+                font.pixelSize: Theme.fontSizeSmall
+                textFormat: Text.RichText
+                wrapMode: Text.WordWrap
+                linkColor: Theme.highlightColor
+                text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
+                      "<div style='font-size:small'>" + Hp35.about() + "</div>"
+                onLinkActivated: Qt.openUrlExternally(link)
             }
             SectionHeader {
                 text: qsTr("Quick reference")
@@ -266,7 +281,7 @@ Page {
                 Label {
                     width: 3 * Theme.paddingLarge
                     font.pixelSize: Theme.fontSizeSmall
-                    text: qsTr("CH S")
+                    text: qsTr("+/\u2212")
                 }
                 Label {
                     width: grid.width - 4 * Theme.paddingLarge

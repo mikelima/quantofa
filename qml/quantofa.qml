@@ -25,6 +25,7 @@ ApplicationWindow
 {
     id: application
     property string display
+    property bool trigArcMode
 
     initialPage: Component {
         CalculatorPage {
