@@ -79,6 +79,7 @@ Page {
                 }
             }
             Row {
+                visible: Screen.height > 10 * Theme.itemSizeMedium
                 width: calculator.width - 4 * Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
                 TextSwitch {
@@ -106,26 +107,31 @@ Page {
                 anchors.top: gradient.top
                 Row {
                     width: calculator.width
+                    height: Theme.itemSizeSmall
                     // Row 1
                     KeyButton {
                         text: "<table align=center><tr><td valign=bottom>x</td><td valign=top><font size=small>y</font></td></tr></table>" // x^y,
                         onClicked: Hp35.key_pow()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "LOG"
                         onClicked: Hp35.key_log()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "LN"
                         onClicked: Hp35.key_ln()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "<table align=center><tr><td valign=bottom>e</td><td valign=top><font size=small>x</font></td></tr></table>" // e^x
                         onClicked: Hp35.key_epow()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         labelColor: Theme.highlightColor
@@ -133,64 +139,77 @@ Page {
                         text: "CLR"
                         onClicked: Hp35.key_clr()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                 }
                 Row {
                     // Row 2
                     width: calculator.width
+                    height: Theme.itemSizeSmall
                     KeyButton {
                         text: "\u221a<span style='text-decoration:overline;'>x&nbsp;</span>" // sqrt x
                         onClicked: Hp35.key_sqrt()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "ARC"
                         onClicked: Hp35.key_arc()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "SIN"
                         onClicked: Hp35.key_sin()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "COS"
                         onClicked: Hp35.key_cos()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "TAN"
                         onClicked: Hp35.key_tan()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                 }
                 Row {
                     // Row 3
                     width: calculator.width
+                    height: Theme.itemSizeSmall
                     KeyButton {
                         text: "1/x"
                         onClicked: Hp35.key_inv()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "x\u2194y" // x arrows y
                         onClicked: Hp35.key_xy()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "R \u2193" // R downarrow (Rotate stack)
                         onClicked: Hp35.key_r()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "STO"
                         onClicked: Hp35.key_sto()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                     KeyButton {
                         text: "RCL"
                         onClicked: Hp35.key_rcl()
                         width:parent.width / 5
+                        contentHeight: parent.height
                     }
                 }
                 Row {
