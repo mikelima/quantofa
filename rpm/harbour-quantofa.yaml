@@ -1,7 +1,7 @@
 Name: harbour-quantofa
 Summary: Quanto Fa, an RPN calculator
 Version: 0.6.1
-Release: 1
+Release: 2
 Group: Qt/Qt
 URL: http://example.org/
 License: GPL v2 or above
@@ -23,6 +23,7 @@ Requires:
 - sailfishsilica-qt5 >= 0.10.9
 Files:
 - '%{_datadir}/icons/hicolor/256x256/apps/%{name}.png'
+- '%{_datadir}/icons/hicolor/172x172/apps/%{name}.png'
 - '%{_datadir}/icons/hicolor/128x128/apps/%{name}.png'
 - '%{_datadir}/icons/hicolor/108x108/apps/%{name}.png'
 - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'

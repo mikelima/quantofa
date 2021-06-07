@@ -28,6 +28,7 @@ CoverBackground {
         visible: application.display.length === 0
     }
     Image {
+        anchors.fill: parent
         source: "../../pics/graphic-cover-quantofa.png"
         Label {
             anchors {
