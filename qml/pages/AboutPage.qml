@@ -40,7 +40,7 @@ Page {
                 spacing: Theme.paddingLarge
                 Image {
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "/usr/share/icons/hicolor/86x86/apps/harbour-quantofa.png"
+                    source: "/usr/share/icons/hicolor/128x128/apps/harbour-quantofa.png"
                 }
                 Column {
                     Label {
@@ -55,7 +55,6 @@ Page {
             }
             Item {
                 height: Theme.paddingLarge
-
             }
             Column {
                 id: lastSection
@@ -85,23 +84,28 @@ Page {
                           qsTr("Copyright (c) 2004 <a href='http://neil.fraser.name'>Neil Fraser</a>, Elgin, Scotland.") +
                           "</p><p>" +
                           qsTr("Licensed under the GNU Public License v2 or above") +
-                          "</p></div><div style='font-size:small'>" + Hp35.about() + "</div>"
+                          "</p></div>"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
             }
             SectionHeader {
                 text: qsTr("HP35 License")
             }
-            Label {
-                width: parent.width
-                fontSizeMode: Text.Fit
-                font.pixelSize: Theme.fontSizeSmall
-                textFormat: Text.RichText
-                wrapMode: Text.WordWrap
-                linkColor: Theme.highlightColor
-                text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
-                      "<div style='font-size:small'>" + Hp35.about() + "</div>"
-                onLinkActivated: Qt.openUrlExternally(link)
+            Row {
+                x: Theme.paddingLarge
+                width: aboutPage.width - 2 * Theme.paddingLarge
+                spacing: Theme.paddingLarge
+                Label {
+                    width: parent.width
+                    fontSizeMode: Text.Fit
+                    font.pixelSize: Theme.fontSizeSmall
+                    textFormat: Text.RichText
+                    wrapMode: Text.WordWrap
+                    linkColor: Theme.highlightColor
+                    text: "<style>a:link{color:" + Theme.highlightColor + ";text-decoration:none}</style>" +
+                          "<div style='font-size:small'>" + Hp35.about() + "</div>"
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
             }
             SectionHeader {
                 text: qsTr("Quick reference")
